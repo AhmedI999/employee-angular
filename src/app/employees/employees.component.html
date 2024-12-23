@@ -1,0 +1,46 @@
+<div class="employees-container">
+  <button class="btn-new-employee" (click)="openAddEmployeeForm()">+ New Employee</button>
+
+  <!-- New Employee Form (Modal or Popup) -->
+  @if (showAddEmployeeForm()) {
+    <div class="add-employee-form">
+      <h3>Add New Employee</h3>
+      <form [formGroup]="newEmployeeForm" (ngSubmit)="addEmployee()">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" required />
+
+        <label for="salary">Salary:</label>
+        <input id="salary" formControlName="salary" type="number" required />
+
+        <label for="position">Position:</label>
+        <input id="position" formControlName="position" type="text" required />
+
+        <button type="submit" [disabled]="newEmployeeForm.invalid">Add Employee</button>
+        <button type="button" (click)="closeAddEmployeeForm()">Cancel</button>
+      </form>
+    </div>
+  }
+
+  @if (isFetching() && !error()) {
+    <p class="loading">Loading employees...</p>
+  }
+  @if (error()) {
+    <p class="error">An error occurred while fetching employees. Please try again later.</p>
+  }
+  @if (employees() && !isFetching()) {
+    <div class="employee-cards">
+      @for (employee of employees(); track employee.id){
+        <app-employee-card [employee]="employee" (viewProfile)="viewProfile(employee)" />
+      }
+    </div>
+    @if (selectedEmployee()) {
+      <app-employee-profile
+        [employee]="selectedEmployee()"
+        [isOpen]="profileOpen()"
+        (closeProfile)="closeProfile()"
+        (saveProfile)="saveProfile($event)"
+        (deleteEmployee)="deleteEmployee()"
+      />
+    }
+  }
+</div>

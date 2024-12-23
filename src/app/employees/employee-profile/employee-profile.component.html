@@ -1,0 +1,36 @@
+<div class="profile-panel" [class.active]="isOpen">
+  <div class="profile-header">
+    <h3>Employee Profile</h3>
+    <button class="close-btn" (click)="onClose()">✖</button>
+  </div>
+  <div class="profile-content">
+    <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text" />
+        @if (profileForm.get('name')?.invalid && profileForm.get('name')?.touched) {
+          <small>
+            Name is required.
+          </small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input id="salary" formControlName="salary" type="number" />
+        @if (profileForm.get('salary')?.invalid && profileForm.get('salary')?.touched){
+          <small>
+            Salary must be a positive number.
+          </small>
+        }
+
+      </div>
+
+      <div class="profile-footer">
+        <button type="submit" class="btn btn-save" [disabled]="profileForm.invalid">Save</button>
+        <button type="button" class="btn btn-close" (click)="onClose()">Close</button>
+        <button type="button" class="btn btn-delete" (click)="onDelete()">Delete</button>
+      </div>
+    </form>
+  </div>
+</div>

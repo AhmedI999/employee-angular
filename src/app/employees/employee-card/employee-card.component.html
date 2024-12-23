@@ -1,0 +1,15 @@
+<div class="employee-card">
+  <div class="employee-card-header">
+    <img src="generic-employee.jpg" alt="Profile Picture" class="employee-card-image" />
+    <div class="employee-info">
+      <h3 class="employee-name">{{ employee().name }}</h3>
+      <p class="employee-position">{{ employee().position }}</p>
+    </div>
+  </div>
+  <div class="employee-card-body">
+    <p class="employee-salary">Salary: ${{ employee().salary | number }}</p>
+  </div>
+  <div class="employee-card-footer">
+    <button class="employee-card-button" (click)="onViewProfile()">View Profile</button>
+  </div>
+</div>

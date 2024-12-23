@@ -1,0 +1,74 @@
+.employee-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.employee-card:hover {
+  transform: translateY(-10px);
+}
+
+.employee-card-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.employee-card-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.employee-info {
+  flex-grow: 1;
+}
+
+.employee-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.employee-position {
+  font-size: 1rem;
+  color: #777;
+  margin: 5px 0 0;
+}
+
+.employee-card-body {
+  padding: 15px;
+}
+
+.employee-salary {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.employee-card-footer {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.employee-card-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.employee-card-button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,13 @@
+<nav class="css-nav">
+  <a href="#" class="logo">Company Website</a>
+  <ul class="nav-links" [ngClass]="{'open': isMenuOpen}">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+    <li><a routerLink="/company/employees">Employees</a></li>
+  </ul>
+  <div class="menu-icon" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
